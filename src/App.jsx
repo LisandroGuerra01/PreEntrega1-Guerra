@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-no-undef */
 import Contador from "./Components/Contador";
-// import ContadorRef from "./Components/ContadorRef";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import NavBar from "./Components/Navbar/Navbar";
 import UserList from "./Components/UserList";
+import ProductCard from "./Components/ProductCard";
 import "./App.css";
 
 
@@ -14,9 +15,23 @@ const App = () => {
       <NavBar />
       <ItemListContainer />
 
+      <ProductCard title="SABORES" price={100} img="https://ar.freddo.com/wp-content/uploads/2022/10/sabores.png">
+        <p>Elegir sabores</p>
+        <button>Comprar ya!</button>
+      </ProductCard>
+
+      <ProductCard title="TENTACIONES" price={200} img="https://ar.freddo.com/wp-content/uploads/2022/10/tentaciones.png">
+        <p>Elegir productos</p>
+        <button>Agregar a favoritos</button>
+      </ProductCard>
+
+      <ProductCard title="PRE ENVASADOS" price={300} img="https://ar.freddo.com/wp-content/uploads/2022/10/preenvasados.png">
+        <p>Elegir productos</p>
+        <button>Comprar ya!</button>
+      </ProductCard>
+
       <Contador />
-      <br />
-      {/* <ContadorRef /> */}
+
       <UserList />
     </div>
   );
