@@ -4,6 +4,8 @@ import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import NavBar from "./Components/Navbar/Navbar";
 import UserList from "./Components/UserList";
 import ProductCard from "./Components/ProductCard";
+import Productos from "./Components/Productos";
+
 import "./App.css";
 
 
@@ -30,6 +32,7 @@ const App = () => {
         <button>Comprar ya!</button>
       </ProductCard>
 
+      <Productos></Productos>
       <Contador />
 
       <UserList />

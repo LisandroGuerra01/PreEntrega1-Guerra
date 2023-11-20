@@ -3,8 +3,6 @@
 const ProductCard = ({img, title, price, children }) => {
 
 
-
-
     return (
         <div className="my-3 border rounded text-center">
             <h2>{title}</h2>
