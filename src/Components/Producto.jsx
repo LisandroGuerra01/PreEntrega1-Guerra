@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-const Producto = ({img, name, categoria, id, precio}) => {
+const Producto = ({ img, name, categoria, id, precio }) => {
 
 
     return (
@@ -8,7 +8,7 @@ const Producto = ({img, name, categoria, id, precio}) => {
             <div className="text-center card box">
                 <div className="member-card py-2">
                     <div className="thumb-lg member-thumb mx-auto">
-        |               <img src={img} width={150} height={150} alt={name} className="rounded-circle img-thumbnail"/>
+                        <img src={img} width={150} height={150} alt={name} className="rounded-circle img-thumbnail" />
                         <div>
                             <h3>{categoria}</h3>
                             <p>{name}</p>

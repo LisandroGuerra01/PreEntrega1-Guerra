@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-undef */
-import Contador from "./Components/Contador";
+// import Contador from "./Components/Contador";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import NavBar from "./Components/Navbar/Navbar";
 import UserList from "./Components/UserList";
@@ -33,7 +33,7 @@ const App = () => {
       </ProductCard>
 
       <Productos></Productos>
-      <Contador />
+      {/* <Contador /> */}
 
       <UserList />
     </div>
