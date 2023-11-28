@@ -1,24 +1,44 @@
-/* eslint-disable no-unused-vars */
-import itemList from "./itemList"
-import { useEffect, useState } from "react";
+import { useState, useEffect } from 'react';
+import CardProduct from '../CardProduct/CardProduct';
+import data from '../../Components/Json/arrayProductos.json';
+import Spinner from 'react-bootstrap/Spinner';
 
-const ItemListContainer = () => {
+const { data: { items } } = data;
 
-    const [list, setList] = useState()
-    const url = "https://www.digi-api.com/api/v1/digimon"
+const getItems = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(items);
+        }, 1300);
+    });
+}
+// eslint-disable-next-line react/prop-types
+const ItemListContainer = ({ greeting }) => {
+
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
-        fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data.content)
-            setList(data.content)
-        })
-    }, [])
+        getItems().then((result) => {
+            setProducts(result);
+            setLoading(false);
+            setError(false);
+        });
+    }, []);
+
+    if (loading) {
+        return <div className='d-flex justify-content-center mt-5'><Spinner animation="border" variant="warning"/></div>;
+    }
+
+    if (error) {
+        return <h3>Hubo un error</h3>;
+    }
 
     return (
-        <div>
-            <itemList list={list} />
+        <div className="container">
+            <h1>{greeting}</h1>
+            <CardProduct products={products} />
         </div>
     );
 };

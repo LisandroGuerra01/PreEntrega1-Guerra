@@ -6,7 +6,6 @@ import { NavDropdown } from 'react-bootstrap';
 import "./Header.css";
 
 
-
 function NavBar() {
     return (
         <div className='header'>
@@ -14,7 +13,7 @@ function NavBar() {
                 <Navbar.Brand href="#home" className='col-4'><Logo></Logo></Navbar.Brand>
                     <Nav className="col-8 justify-content-end px-5 fs-5">
                         <NavDropdown title="PRODUCTOS" id="navbarscrollingproductos" className='my-auto'>
-                        <NavDropdown.Item href='#Sabores' className='fw-semibold'>
+                        <NavDropdown.Item className='fw-semibold'>
                         SABORES
                         </NavDropdown.Item>
                         <NavDropdown.Item href='#Tentaciones' className='fw-semibold'>
