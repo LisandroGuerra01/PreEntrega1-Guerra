@@ -28,7 +28,7 @@ const ItemListContainer = ({ greeting }) => {
     }, []);
 
     if (loading) {
-        return <div className='d-flex justify-content-center mt-5'><Spinner animation="border" variant="warning"/></div>;
+        return <div className='d-flex justify-content-center m-5'><Spinner animation="border" variant="warning"/></div>;
     }
 
     if (error) {
@@ -36,7 +36,7 @@ const ItemListContainer = ({ greeting }) => {
     }
 
     return (
-        <div className="container">
+        <div className='container'>
             <h1>{greeting}</h1>
             <CardProduct products={products} />
         </div>

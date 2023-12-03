@@ -1,26 +1,21 @@
 import { useParams } from "react-router-dom";
 import data from '../../Components/Json/arrayProductos.json';
 import ItemDetailContainer from "../../Components/ItemDetailContainer/ItemDetailContainer";
-import { Link } from "react-router-dom";
+
+import Header from "../../views/Header/Header";
 
 
 const { data: { items } } = data;
 
 const PageProductDetail = () => {
 
-    const { itemId } = useParams();
+    const { id } = useParams();
 
-    const product = items.find((item) => item.id === itemId);
-
+    const product = items.find((item) => item.id == id);
     return (
         <>
-            <div className="container">
-                <h2>Detalle de producto</h2>
-                <button type="button" className="btn btn-success">
-                    <Link to="/" className="text-white">Volver</Link>
-                </button>
-                <ItemDetailContainer product={product} />
-            </div>
+            <Header />
+            <ItemDetailContainer product={product} />
         </>
     )
 }

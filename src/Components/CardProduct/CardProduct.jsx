@@ -1,21 +1,21 @@
-
+import "./CardProduct.css";
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const CardProduct = ({ products }) => {
     return (
-        <div className="row">
+        <div className="d-grid">
             {products.map((product) => {
                 return (
-                    <div className="col-12" key={`product-${product.id}`}>
-                        <div className="card">
+                    <div key={`product-${product.id}`} className="row border-bottom p-1 my-3 product">
+                        <div className="col-2">
                             <h6>{product.category}</h6>
-                            <img src={product.img} className="card-img-top" alt={product.name} />
-                            <div className="card-body">
-                                <h5 className="card-title">{product.name}</h5>
-                                <p className="card-text">${product.price}</p>
-                                <Link to={`/item/${product.id}`} className="btn btn-success">Ver detalle</Link>
-                            </div>
+                            <h5>{product.name}</h5>
+                            <p className="fw-bold fs-5">${product.price}</p>
+                            <Link to={`/item/${product.id}`} className="btn btn-success">Ver detalle</Link>
+                        </div>
+                        <div className="col-2">
+                            <img src={product.img} className="rounded-5 shadow-lg" alt={product.name} width={220}/>
                         </div>
                     </div>
                 );
