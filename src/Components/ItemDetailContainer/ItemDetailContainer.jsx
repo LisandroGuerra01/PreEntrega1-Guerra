@@ -1,22 +1,20 @@
+/* eslint-disable react/prop-types */
+import "./itemDetailContainer.css"
+import { Link } from "react-router-dom";
 
-const ItemDetailContainer = (
-    {
-        // eslint-disable-next-line react/prop-types
-        product = {
-            category: "category",
-            name: "name",
-            price: "price",
-            img: "images"
-        }
-    }
-) => {
+const ItemDetailContainer = ({product}) => {
     return (
-        <div className="card">
-            <h5>{product.category}</h5>
-            <img src={product.img} className="card-img-top" alt={product.name} />
-            <div className="card-body">
-                <h5 className="card-title">{product.name}</h5>
-                <p className="card-text">${product.price}</p>
+        <div>
+            <div className="items">
+                <img src={product.img} alt={product.name} className="img-thumbnail"/>
+                <div className="">
+                    <h5 className="">{product.name}</h5>
+                    <h5 className="">{product.description}</h5>
+                    <p className="">${product.price}</p>
+                    <button type="button" className="btn btn-success">
+                    <Link to="/" className="text-white">Pedir ahora</Link>
+                </button>
+                </div>
             </div>
         </div>
     )

@@ -1,4 +1,10 @@
 .page {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Jost', "sans-serif";
     font-weight: 600;
+}
+h2, h5{
+    font-family: "Oswald";
+}
+p{
+    font-family: "Jost";
 }
