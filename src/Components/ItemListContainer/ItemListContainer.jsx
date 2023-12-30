@@ -1,18 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import CardProduct from '../CardProduct/CardProduct';
-import data from '../../Components/Json/arrayProductos.json';
+import { getProducts } from '../../data/asyncMock';
 import Spinner from 'react-bootstrap/Spinner';
 
-const { data: { items } } = data;
-
-const getItems = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(items);
-        }, 1300);
-    });
-}
-// eslint-disable-next-line react/prop-types
 const ItemListContainer = ({ greeting }) => {
 
     const [products, setProducts] = useState([]);
@@ -20,11 +11,17 @@ const ItemListContainer = ({ greeting }) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        getItems().then((result) => {
-            setProducts(result);
-            setLoading(false);
-            setError(false);
-        });
+        const asyncFuction = async () => {
+            try {
+                const result = await getProducts();
+                setProducts(result);
+            } catch (error) {
+                setError(true);
+            } finally {
+                setLoading(false);
+            }
+        };
+        asyncFuction();
     }, []);
 
     if (loading) {

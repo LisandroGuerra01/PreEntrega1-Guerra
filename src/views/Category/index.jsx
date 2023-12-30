@@ -1,36 +1,51 @@
-import data from "../../Components/Json/arrayProductos.json";
+import { getProductsByCategory } from "../../data/asyncMock";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../Header/Header";
-import "./category.css"
+import CardProduct from "../../Components/CardProduct/CardProduct";
 
-const { data: { items } } = data;
-const PageCategory = () => {
+const PageProductCategory = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
-    const { id } = useParams();
+    const { categoryId } = useParams();
 
-    const products = items.filter((item) => item.category === id);
+    useEffect(() => {
+        const asyncFuction = async () => {
+            try {
+                const result = await getProductsByCategory(categoryId);
+                setProducts(result);
+            } catch (error) {
+                setError(true);
+            } finally {
+                setLoading(false);
+            }
+        };
+        asyncFuction();
+    }, [categoryId]);
+
+    if (loading) {
+        return (
+            <div className="container">
+                <h2 className='text-center text-uppercase my-5'>Cargando...</h2>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="container">
+                <h2 className='text-center text-uppercase my-5'>Hubo un error</h2>
+            </div>
+        );
+    }
 
     return (
-        <>
-            <Header imgPortada={"Hola"} />
-            <div className="category">
-                <h2 className="text-center m-5 fw-bold fs-1">{id.toUpperCase()}</h2>
-                <div className="row">
-                    {products.map((product) => {
-                        return (
-                            <div className="col-md-4" key={`product-${product.id}`} >
-                                <div className="text-center item">
-                                    <img src={product.img} alt={product.name}/>
-                                    <h5 className="fs-2">{product.name}</h5>
-                                    <p>{product.description}</p>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-        </>
+        <div className="container">
+            <h2 className="text-center text-uppercase my-5">Categoria {categoryId}</h2>
+            <CardProduct products={products} />
+        </div>
     )
 }
 
-export default PageCategory;
+export default PageProductCategory

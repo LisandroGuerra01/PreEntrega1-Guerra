@@ -1,9 +1,9 @@
 .portada{
-    height: 90vh;
+    height: 70vh;
 }
 
 .portada img{
-    height: 90vh;
+    height: 70vh;
     width: auto;
 }
 
@@ -12,11 +12,11 @@
 }
 
 .card-body{
-    margin: 100px;
+    margin: 8rem;
 }
 
 .card-body h5{
-    font-size: 7rem;
+    font-size: 6rem;
     font-family: "Oswald";
 }
 
