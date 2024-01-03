@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import CardProduct from '../CardProduct/CardProduct';
-import { getProducts } from '../../data/asyncMock';
+import { getProducts } from '../../Components/Data/asyncMock';
 import Spinner from 'react-bootstrap/Spinner';
 
 const ItemListContainer = ({ greeting }) => {

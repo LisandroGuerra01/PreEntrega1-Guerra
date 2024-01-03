@@ -1,4 +1,4 @@
-import { getProductsByCategory } from "../../data/asyncMock";
+import { getProductsByCategory } from "../../Components/Data/asyncMock";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardProduct from "../../Components/CardProduct/CardProduct";

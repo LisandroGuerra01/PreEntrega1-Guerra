@@ -1,6 +1,6 @@
 const products = [
     {
-        "id": 1,
+        "id": "1",
         "name": "1 Kilo de Helado",
         "img": "https://images.rappi.com.ar/products/627960-1568484422.jpg?d=300x300&e=webp&q=10",
         "price": 6500,
@@ -9,7 +9,7 @@ const products = [
         "description": "Exquisita Indulgencia en Cada Kilo de Placer Helado."
     },
     {
-        "id": 2,
+        "id": "2",
         "name": "1/2 Kilo de Helado",
         "img": "https://images.rappi.com.ar/products/627961-1568484475.jpg?e=webp&d=511x511&q=85",
         "price": 4500,
@@ -18,7 +18,7 @@ const products = [
         "description": "Medio Kilo de Felicidad con Nuestros Deliciosos Sabores."
     },
     {
-        "id": 3,
+        "id": "3",
         "name": "1/4 Kilo de Helado",
         "img": "https://images.rappi.com.ar/products/627962-1568484495.jpg?e=webp&d=511x511&q=85",
         "price": 3500,
@@ -27,7 +27,7 @@ const products = [
         "description": "Un Cuarto de Kilo de Frescura y Sabor Irresistibles."
     },
     {
-        "id": 4,
+        "id": "4",
         "name": "Tabletas",
         "img": "https://ar.freddo.com/wp-content/uploads/2022/10/Tableta_Cookies_Cream-400x263.jpg",
         "price": 5000,
@@ -36,7 +36,7 @@ const products = [
         "description": "Cubierta de Chocolate con Leche"
     },
     {
-        "id": 5,
+        "id": "5",
         "name": "Cannoli",
         "img": "https://ar.freddo.com/wp-content/uploads/2022/10/Cannoli_DDL-400x263.jpg",
         "price": 4000,
@@ -45,7 +45,7 @@ const products = [
         "description": "Rellenos con Helado de Dulce de Leche y Cubiertos de Chocolate"
     },
     {
-        "id": 6,
+        "id": "6",
         "name": "Postres helados",
         "img": "https://ar.freddo.com/wp-content/uploads/2022/10/Postre_Mascarpone-400x263.jpg",
         "price": 6000,
@@ -54,7 +54,7 @@ const products = [
         "description": "Helado de mascarpone, frutilla a la crema y frutos rojos, con cobertura de salsa de frutos rojos y merengue."
     },
     {
-        "id": 7,
+        "id": "7",
         "name": "Pinta 375g",
         "img": "https://ar.freddo.com/wp-content/uploads/2023/05/PINTA-COOKIESCREAM-3.jpg",
         "price": 3500,
@@ -63,7 +63,7 @@ const products = [
         "description": "Con Caramelo y Galletitas de Chocolate"
     },
     {
-        "id": 8,
+        "id": "8",
         "name": "Americana",
         "img": "https://ar.freddo.com/wp-content/uploads/2022/10/TABLETAS-crema-americana-1.jpg",
         "price": 3000,
@@ -72,7 +72,7 @@ const products = [
         "description": "Recubiertas de Chocolate Semi Amargo"
     },
     {
-        "id": 9,
+        "id": "9",
         "name": "Bombones",
         "img": "https://ar.freddo.com/wp-content/uploads/2023/01/bombones-americana-2560x2560-1-600x600.png",
         "price": 4000,

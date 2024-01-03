@@ -1,8 +1,18 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import "./itemDetailContainer.css"
-import { Link } from "react-router-dom";
+import ItemCount from "../ItemCount/ItemCount";
 
 const ItemDetailContainer = ({product}) => {
+
+    const [quantityAdded, setQuantityAdded] = useState(0)
+
+    const handleOnAdd = (quantity) => {
+        setQuantityAdded(quantity)
+    }
+
+
+
     return (
         <div>
             <div className="items">
@@ -11,9 +21,19 @@ const ItemDetailContainer = ({product}) => {
                     <h5 className="">{product.name}</h5>
                     <h5 className="">{product.description}</h5>
                     <p className="">${product.price}</p>
-                    <button type="button" className="btn btn-success">
-                    <Link to="/" className="text-white">Pedir ahora</Link>
-                </button>
+                    {
+                        quantityAdded === 0
+                        ?
+                        <ItemCount 
+                        stock={product.stock}
+                        handleOnAdd={handleOnAdd}
+                        />
+                        :
+                        <div>
+                            <p>Cantidad</p>
+                            <p>{quantityAdded}</p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
