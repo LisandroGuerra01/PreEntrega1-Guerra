@@ -11,7 +11,7 @@ function NavBar() {
     return (
         <div className='header'>
             <Navbar data-bs-theme="dark" className='p-3 text-center'>
-                <Link to='/' className='col-4'><Logo></Logo></Link>
+                <Link to='/' className='col-4'><Logo ></Logo></Link>
                 <Nav className="col-8 justify-content-end px-5 fs-5 fw-semibold">
                     <NavDropdown title="PRODUCTOS" id="navbarscrollingproductos" className='my-auto'>
                         <Link to='/category/sabores' className='fw-semibold'>
