@@ -2,6 +2,8 @@ import { getProductsByCategory } from "../../Components/Data/asyncMock";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardProduct from "../../Components/CardProduct/CardProduct";
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const PageProductCategory = () => {
     const [products, setProducts] = useState([]);
@@ -26,8 +28,8 @@ const PageProductCategory = () => {
 
     if (loading) {
         return (
-            <div className="container">
-                <h2 className='text-center text-uppercase my-5'>Cargando...</h2>
+            <div className='d-flex justify-content-center m-5'>
+                <Spinner animation="border" variant="warning"/>
             </div>
         );
     }

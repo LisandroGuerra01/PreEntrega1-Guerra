@@ -13,10 +13,10 @@ function NavBar() {
             <Navbar data-bs-theme="dark" className='p-3 text-center'>
                 <Link to='/' className='col-4'><Logo ></Logo></Link>
                 <Nav className="col-8 justify-content-end px-5 fs-5 fw-semibold">
-                    <NavDropdown title="PRODUCTOS" id="navbarscrollingproductos" className='my-auto'>
+                    <NavDropdown title="PRODUCTOS"  className='my-auto'>
                         <Link to='/category/sabores' className='fw-semibold'>
                             SABORES
-                        </Link>
+                        </Link><br />
                         <Link to='/category/tentaciones' className='fw-semibold'>
                             TENTACIONES
                         </Link>
@@ -24,7 +24,7 @@ function NavBar() {
                             PRE ENVASADOS
                         </Link>
                     </NavDropdown>
-                    <NavDropdown title="DÓNDE ESTAMOS" id="navbarscrollingdondeestamos" className='my-auto'>
+                    <NavDropdown title="DÓNDE ESTAMOS" className='my-auto'>
                         <Link to='#Locales' className='fw-semibold'>
                             LOCALES
                         </Link>
@@ -32,7 +32,7 @@ function NavBar() {
                             PUNTOS DE VENTA
                         </Link>
                     </NavDropdown>
-                    <NavDropdown title="NOSOTROS" id="navbarscrollingproductos" className='my-auto'>
+                    <NavDropdown title="NOSOTROS" className='my-auto'>
                         <Link to='#QuienesSomos' className='fw-semibold'>
                             QUIENES SOMOS
                         </Link>
@@ -49,7 +49,7 @@ function NavBar() {
                             CONTACTO
                         </Link>
                     </NavDropdown>
-                    <Nav.Link to='#Carrito' className='my-auto'><CartWidget /></Nav.Link>
+                    <Link to='/Cart' ><CartWidget /></Link>
                 </Nav>
             </Navbar>
         </div>

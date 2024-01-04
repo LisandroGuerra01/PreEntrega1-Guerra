@@ -3,12 +3,13 @@ import { useContext, useState } from "react";
 import "./itemDetailContainer.css"
 import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../../Context/CartContext";
+import { Link } from "react-router-dom";
 
 const ItemDetailContainer = ({product}) => {
 
     const [quantityAdded, setQuantityAdded] = useState(0)
 
-    const { addToCart } = useContext(CartContext);
+    const { addToCart, getTotalPrice } = useContext(CartContext);
 
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
@@ -40,8 +41,11 @@ const ItemDetailContainer = ({product}) => {
                         />
                         :
                         <div>
-                            <p>Cantidad</p>
-                            <p>{quantityAdded}</p>
+                            <p><span className="fw-bolder">{product.name}</span> x {quantityAdded}</p>
+                            <div className="m-1">
+                            <Link to="/" className="btn btn-primary mx-1">Agregar y seguir comprando</Link>
+                            <Link to="/Cart" className="btn btn-success">Agregar e ir a pagar $ {getTotalPrice()}</Link>
+                            </div>
                         </div>
                     }
                 </div>

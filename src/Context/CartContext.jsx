@@ -39,7 +39,7 @@ const CartProvider = ({ children }) => {
 
     //función para obtener el precio total del carrito
     const getTotalPrice = () => {
-        return cartItems.reduce((acc, item) => acc + item.price, 0);
+        return cartItems.reduce((acc, item) => acc + item.price*item.quantity, 0);
     };
 
     //función para devolver la cantidad de items en el carrito
