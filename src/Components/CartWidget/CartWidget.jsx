@@ -11,7 +11,7 @@ const CartWidget = () => {
 
     return (
         <div>
-            <i className='fs-2'><AiOutlineShoppingCart /></i>
+            <i className='fs-2 text-white text-decoration-none'><AiOutlineShoppingCart /></i>
             <span>
                 <Badge pill bg="success">
                     {getQuantity()}
