@@ -19,7 +19,7 @@ function NavBar() {
                         </Link><br />
                         <Link to='/category/tentaciones' className='fw-semibold'>
                             TENTACIONES
-                        </Link>
+                        </Link><br />
                         <Link to='/category/pre-envasados' className='fw-semibold'>
                             PRE ENVASADOS
                         </Link>
