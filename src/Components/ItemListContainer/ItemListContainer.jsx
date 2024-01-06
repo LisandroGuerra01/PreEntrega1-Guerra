@@ -1,36 +1,35 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import CardProduct from '../CardProduct/CardProduct';
-import { getProducts } from '../../Components/Data/asyncMock';
+import {getFirestore, collection, getDocs, where, query} from "firebase/firestore";
 import Spinner from 'react-bootstrap/Spinner';
 
 const ItemListContainer = ({ greeting }) => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+
 
     useEffect(() => {
-        const asyncFuction = async () => {
-            try {
-                const result = await getProducts();
-                setProducts(result);
-            } catch (error) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        };
-        asyncFuction();
+        const queryDb = getFirestore();
+        const queryCollection = collection (db, "products");
+
+        if(id){
+            const queryFilter = query(queryCollection, where("category", "==", id));
+            getDocs(queryFilter).then((res) =>
+            setProducts(res.docs.map((p) => ({id: p.id, ...p.data() })))
+            );
+        } else {
+            getDocs(queryCollection).then((res) =>
+            setProducts(res.docs.map((p) => ({id: p.id, ...p.data() })))
+            );
+        }
     }, []);
 
     if (loading) {
         return <div className='d-flex justify-content-center m-5'><Spinner animation="border" variant="warning"/></div>;
     }
 
-    if (error) {
-        return <h3>Hubo un error</h3>;
-    }
 
     return (
         <div className='container'>
