@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import CardProduct from '../CardProduct/CardProduct';
-import {getFirestore, collection, getDocs, where, query} from "firebase/firestore";
+import {collection, getDocs} from "firebase/firestore";
+import {db} from "../Firebase/config.js"
 import Spinner from 'react-bootstrap/Spinner';
 
 const ItemListContainer = ({ greeting }) => {
@@ -11,19 +12,13 @@ const ItemListContainer = ({ greeting }) => {
 
 
     useEffect(() => {
-        const queryDb = getFirestore();
-        const queryCollection = collection (db, "products");
-
-        if(id){
-            const queryFilter = query(queryCollection, where("category", "==", id));
-            getDocs(queryFilter).then((res) =>
-            setProducts(res.docs.map((p) => ({id: p.id, ...p.data() })))
-            );
-        } else {
-            getDocs(queryCollection).then((res) =>
-            setProducts(res.docs.map((p) => ({id: p.id, ...p.data() })))
-            );
-        }
+        const getProductsFirebase = async () => {
+            const productsCollection = collection(db, "products");
+            const productsSnapshot = await getDocs(productsCollection);
+            const productsList = productsSnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+            setProducts(productsList);
+            setLoading(false);
+        };getProductsFirebase();
     }, []);
 
     if (loading) {

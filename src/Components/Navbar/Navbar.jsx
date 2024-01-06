@@ -25,27 +25,24 @@ function NavBar() {
                         </Link>
                     </NavDropdown>
                     <NavDropdown title="DÓNDE ESTAMOS" className='my-auto'>
-                        <Link to='#Locales' className='fw-semibold'>
+                        <Link to='/proximamente' className='fw-semibold'>
                             LOCALES
-                        </Link>
-                        <Link to='#PuntosDeVenta' className='fw-semibold'>
+                        </Link><br />
+                        <Link to='/proximamente' className='fw-semibold'>
                             PUNTOS DE VENTA
                         </Link>
                     </NavDropdown>
                     <NavDropdown title="NOSOTROS" className='my-auto'>
-                        <Link to='#QuienesSomos' className='fw-semibold'>
+                        <Link to='/proximamente' className='fw-semibold'>
                             QUIENES SOMOS
-                        </Link>
-                        <Link to='#Novedades' className='fw-semibold'>
+                        </Link><br />
+                        <Link to='/proximamente' className='fw-semibold'>
                             NOVEDADES
-                        </Link>
-                        <Link to='#AbriTuFranquicia' className='fw-semibold'>
+                        </Link><br />
+                        <Link to='/proximamente' className='fw-semibold'>
                             ABRÍ TU FRANQUICIA
-                        </Link>
-                        <Link to='/category/sabores' className='fw-semibold'>
-                            SABORES
-                        </Link>
-                        <Link to='#Contacto' className='fw-semibold'>
+                        </Link><br />
+                        <Link to='/proximamente' className='fw-semibold'>
                             CONTACTO
                         </Link>
                     </NavDropdown>

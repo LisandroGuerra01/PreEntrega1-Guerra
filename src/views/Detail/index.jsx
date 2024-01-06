@@ -1,4 +1,5 @@
-import { getProductById } from "../../Components/Data/asyncMock";
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../Components/Firebase/config.js';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetailContainer from "../../Components/ItemDetailContainer/ItemDetailContainer";
@@ -8,22 +9,18 @@ import Spinner from 'react-bootstrap/Spinner';
 const PageProductDetail = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
 
     const { productId } = useParams();
 
     useEffect(() => {
-        const asyncFuction = async () => {
-            try {
-                const result = await getProductById(productId);
-                setProduct(result);
-            } catch (error) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
+        const getProductFirebase = async () => {
+            const productDoc = doc(db, "products", productId);
+            const productSnapshot = await getDoc(productDoc);
+            const productData = productSnapshot.data();
+            setProduct({id: productSnapshot.id, ...productData});
+            setLoading(false);
         };
-        asyncFuction();
+        getProductFirebase();
     }, [productId]);
 
     if (loading) {
@@ -34,13 +31,6 @@ const PageProductDetail = () => {
         );
     }
 
-    if (error) {
-        return (
-            <div className="container">
-                <h2 className='text-center text-uppercase my-5'>Hubo un error</h2>
-            </div>
-        );
-    }
 
     return (
         <>
