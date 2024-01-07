@@ -3,10 +3,9 @@ import "./Header.css"
 
 const Header = () => {
     return (
-        
         <div className="row portada bg-black">
             <div className="overlay col-7 align-self-center text-white text-start">
-                <div className="card-body">
+                <div className="card-body card-body-home">
                     <h5 className="card-title">GELATO <br></br><span>FREDDO</span></h5>
                     <p className="card-text">En Freddo pensamos y creamos <br></br>cada sabor logrando una receta única.</p>
                 </div>

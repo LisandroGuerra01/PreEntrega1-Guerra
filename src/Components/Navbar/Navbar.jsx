@@ -1,56 +1,91 @@
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../CartWidget/CartWidget';
 import Logo from './Logo';
-import { NavDropdown } from 'react-bootstrap';
 import "./Header.css";
 import { Link } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-
-function NavBar() {
+function NavScrollExample() {
     return (
-        <div className='header'>
-            <Navbar data-bs-theme="dark" className='p-3 text-center'>
-                <Link to='/' className='col-4'><Logo ></Logo></Link>
-                <Nav className="col-8 justify-content-end px-5 fs-5 fw-semibold">
-                    <NavDropdown title="PRODUCTOS"  className='my-auto'>
-                        <Link to='/category/sabores' className='fw-semibold'>
-                            SABORES
-                        </Link><br />
-                        <Link to='/category/tentaciones' className='fw-semibold'>
-                            TENTACIONES
-                        </Link><br />
-                        <Link to='/category/pre-envasados' className='fw-semibold'>
-                            PRE ENVASADOS
-                        </Link>
+        <Navbar expand="lg" data-bs-theme="dark" fixed="top" className='header p-3 text-center'>
+            <Navbar.Brand className='col-4'><Link to='/'><Logo ></Logo></Link></Navbar.Brand>
+            <Navbar.Collapse className="col-8 justify-content-end px-5 fs-5 fw-semibold">
+                <Nav navbarScroll >
+                    <NavDropdown title="PRODUCTOS" id="navbarScrollingDropdown">
+                            <div className='col-3'>
+                                <NavDropdown.Item>
+                                    <Link className='font-nav' to='/category/sabores'>
+                                        SABORES
+                                    </Link>
+                                </NavDropdown.Item>
+                            </div>
+                            <div className='col-3'>
+                                <NavDropdown.Item>
+                                    <Link className='font-nav' to='/category/tentaciones'>
+                                        TENTACIONES
+                                    </Link>
+                                </NavDropdown.Item>
+                            </div>
+                            <div className='col-3'>
+                                <NavDropdown.Item>
+                                    <Link className='font-nav' to='/category/pre-envasados'>
+                                        PRE ENVASADOS
+                                    </Link>
+                                </NavDropdown.Item>
+                            </div>
                     </NavDropdown>
-                    <NavDropdown title="DÓNDE ESTAMOS" className='my-auto'>
-                        <Link to='/proximamente' className='fw-semibold'>
-                            LOCALES
-                        </Link><br />
-                        <Link to='/proximamente' className='fw-semibold'>
-                            PUNTOS DE VENTA
-                        </Link>
+                    <NavDropdown title="DÓNDE ESTAMOS" id="navbarScrollingDropdown">
+                            <div className='col-3'>
+                                <NavDropdown.Item>
+                                    <Link className='font-nav' to='/proximamente'>
+                                        LOCALES
+                                    </Link>
+                                </NavDropdown.Item>
+                            </div>
+                            <div className='col-3'>
+                                <NavDropdown.Item>
+                                    <Link className='font-nav' to='/proximamente'>
+                                        PUNTOS DE VENTA
+                                    </Link>
+                                </NavDropdown.Item>
+                            </div>
                     </NavDropdown>
-                    <NavDropdown title="NOSOTROS" className='my-auto'>
-                        <Link to='/proximamente' className='fw-semibold'>
-                            QUIENES SOMOS
-                        </Link><br />
-                        <Link to='/proximamente' className='fw-semibold'>
-                            NOVEDADES
-                        </Link><br />
-                        <Link to='/proximamente' className='fw-semibold'>
-                            ABRÍ TU FRANQUICIA
-                        </Link><br />
-                        <Link to='/proximamente' className='fw-semibold'>
-                            CONTACTO
-                        </Link>
+                    <NavDropdown title="NOSOTROS" id="navbarScrollingDropdown">
+                            <div className='col-3'>
+                                <NavDropdown.Item>
+                                    <Link className='font-nav' to='/proximamente'>
+                                        QUIÉNES SOMOS
+                                    </Link>
+                                </NavDropdown.Item>
+                            </div>
+                            <div className='col-3'>
+                                <NavDropdown.Item>
+                                    <Link className='font-nav' to='/proximamente'>
+                                        NOVEDADES
+                                    </Link>
+                                </NavDropdown.Item>
+                            </div>
+                            <div className='col-3'>
+                                <NavDropdown.Item>
+                                    <Link className='font-nav' to='/proximamente'>
+                                        AQUÍ TU FRANQUICIA
+                                    </Link>
+                                </NavDropdown.Item>
+                            </div>
+                            <div className='col-3'>
+                                <NavDropdown.Item>
+                                    <Link className='font-nav' to='/proximamente'>
+                                        CONTACTO
+                                    </Link>
+                                </NavDropdown.Item>
+                            </div>
                     </NavDropdown>
-                    <Link to='/Cart' ><CartWidget /></Link>
                 </Nav>
-            </Navbar>
-        </div>
+                <Link to='/Cart' ><CartWidget /></Link>
+            </Navbar.Collapse>
+        </Navbar>
     );
 }
 
-export default NavBar;
+export default NavScrollExample;

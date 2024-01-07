@@ -11,7 +11,7 @@
     color: black;
 }
 
-.card-body{
+.card-body-home{
     margin: 8rem;
 }
 
@@ -23,7 +23,6 @@
 .card-body p{
     font-family: "jost";
     font-weight: lighter;
-    
 }
 
 .card-body span{

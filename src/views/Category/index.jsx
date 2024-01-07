@@ -1,50 +1,41 @@
-import { getProductsByCategory } from "../../Components/Data/asyncMock";
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import { db } from '../../Components/Firebase/config.js';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardProduct from "../../Components/CardProduct/CardProduct";
 import Spinner from 'react-bootstrap/Spinner';
+import Header from './header.jsx';
 
 
 const PageProductCategory = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
 
     const { categoryId } = useParams();
 
     useEffect(() => {
-        const asyncFuction = async () => {
-            try {
-                const result = await getProductsByCategory(categoryId);
-                setProducts(result);
-            } catch (error) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
+        const getProductsFirebase = async () => {
+            const productsCollection = collection(db, 'products');
+            const q = query(productsCollection, where('category', '==', categoryId));
+            const productsSnapshot = await getDocs(q);
+            const productsList = productsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setProducts(productsList);
+            setLoading(false);
         };
-        asyncFuction();
+        getProductsFirebase();
     }, [categoryId]);
 
     if (loading) {
         return (
             <div className='d-flex justify-content-center m-5'>
-                <Spinner animation="border" variant="warning"/>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="container">
-                <h2 className='text-center text-uppercase my-5'>Hubo un error</h2>
+                <Spinner animation="border" variant="warning" />
             </div>
         );
     }
 
     return (
         <div className="container">
-            <h2 className="text-center text-uppercase my-5">Categoria {categoryId}</h2>
+            <Header />
             <CardProduct products={products} />
         </div>
     )

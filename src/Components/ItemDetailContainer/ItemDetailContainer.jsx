@@ -4,6 +4,7 @@ import "./itemDetailContainer.css"
 import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
+import "../../views/Detail/detail.css";
 
 const ItemDetailContainer = ({product}) => {
 
@@ -27,9 +28,9 @@ const ItemDetailContainer = ({product}) => {
     return (
         <div>
             <div className="items">
+                <h5 className="card-title text-center product"><span>{product.name}</span></h5>
                 <img src={product.img} alt={product.name} className="img-thumbnail"/>
                 <div className="">
-                    <h5 className="">{product.name}</h5>
                     <h5 className="">{product.description}</h5>
                     <p className="">${product.price}</p>
                     {

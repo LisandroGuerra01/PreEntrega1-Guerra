@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetailContainer from "../../Components/ItemDetailContainer/ItemDetailContainer";
 import Spinner from 'react-bootstrap/Spinner';
+// import Header from './Header.jsx';
 
 
 const PageProductDetail = () => {
@@ -17,7 +18,7 @@ const PageProductDetail = () => {
             const productDoc = doc(db, "products", productId);
             const productSnapshot = await getDoc(productDoc);
             const productData = productSnapshot.data();
-            setProduct({id: productSnapshot.id, ...productData});
+            setProduct({ id: productSnapshot.id, ...productData });
             setLoading(false);
         };
         getProductFirebase();
@@ -26,21 +27,17 @@ const PageProductDetail = () => {
     if (loading) {
         return (
             <div className='d-flex justify-content-center m-5'>
-                <Spinner animation="border" variant="warning"/>
+                <Spinner animation="border" variant="warning" />
             </div>
         );
     }
 
 
     return (
-        <>
-            <div className="container">
-                <h2
-                    className="text-center text-uppercase my-5"
-                >Detalle de producto</h2>
-                <ItemDetailContainer product={product} />
-            </div>
-        </>
+        <div className='container'>
+
+            <ItemDetailContainer product={product} />
+        </div>
     )
 }
 
