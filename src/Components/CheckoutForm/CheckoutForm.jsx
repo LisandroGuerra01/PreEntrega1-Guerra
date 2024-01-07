@@ -19,27 +19,29 @@ const CheckoutForm = ({ onConfirm }) => {
     };
 
     return (
+        <div>
         <form onSubmit={handleConfirm}>
             <input
                 type="text"
                 placeholder="Nombre"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-            />
+            /><br/>
             <input
                 type="tel"
                 placeholder="Telefono"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-            />
+            /><br/>
             <input
                 type="email"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-            />
+            /><br/>
             <button type="submit">Confirmar</button>
         </form>
+        </div>
     );
 }
 

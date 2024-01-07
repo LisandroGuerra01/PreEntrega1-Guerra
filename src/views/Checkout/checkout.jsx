@@ -3,6 +3,8 @@ import CheckoutForm from "../../Components/CheckoutForm/CheckoutForm.jsx";
 import { CartContext } from "../../Context/CartContext.jsx";
 import { db } from "../../Components/Firebase/config.js";
 import { addDoc, collection, documentId, getDocs, query, Timestamp, where, writeBatch } from "@firebase/firestore";
+import { Link } from "react-router-dom";
+
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
@@ -70,20 +72,21 @@ const Checkout = () => {
     }
 
     if (loading) {
-        return <h1>Cargando...</h1>;
+        return <h1 className="detail">Cargando...</h1>;
     }
 
     if (orderId) {
         return (
-            <div>
+            <div className="detail text-center p-3">
                 <h1>Compra finalizada</h1>
                 <p>Tu número de orden es {orderId}</p>
+                <Link to="/" className="btn btn-primary m-1">Volver al inicio</Link>
             </div>
         )
     }
 
     return (
-        <div>
+        <div className="detail p-3">
             <h1>Checkout</h1>
             <CheckoutForm onConfirm={createOrder} />
         </div>

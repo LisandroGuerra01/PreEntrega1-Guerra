@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetailContainer from "../../Components/ItemDetailContainer/ItemDetailContainer";
 import Spinner from 'react-bootstrap/Spinner';
-// import Header from './Header.jsx';
+
 
 
 const PageProductDetail = () => {
@@ -35,7 +35,6 @@ const PageProductDetail = () => {
 
     return (
         <div className='container'>
-
             <ItemDetailContainer product={product} />
         </div>
     )

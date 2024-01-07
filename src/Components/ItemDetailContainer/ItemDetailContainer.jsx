@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
-import "./itemDetailContainer.css"
 import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
@@ -27,12 +26,14 @@ const ItemDetailContainer = ({product}) => {
 
     return (
         <div>
-            <div className="items">
-                <h5 className="card-title text-center product"><span>{product.name}</span></h5>
+            <div className="text-center">
+                <div className="card-body detail">
+                <h5 className="fs-1 pt-3"><span>{product.name}</span></h5>
+                </div>
                 <img src={product.img} alt={product.name} className="img-thumbnail"/>
-                <div className="">
-                    <h5 className="">{product.description}</h5>
-                    <p className="">${product.price}</p>
+                <div>
+                    <h5>{product.description}</h5>
+                    <p>${product.price}</p>
                     {
                         quantityAdded === 0
                         ?

@@ -35,7 +35,7 @@ const PageProductCategory = () => {
 
     return (
         <div className="container">
-            <Header />
+            <Header /><hr />
             <CardProduct products={products} />
         </div>
     )
