@@ -4,17 +4,19 @@ import { CartContext } from "../../Context/CartContext.jsx";
 import { db } from "../../Components/Firebase/config.js";
 import { addDoc, collection, documentId, getDocs, query, Timestamp, where, writeBatch } from "@firebase/firestore";
 import { Link } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner';
+
 
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [orderId, setOrderId] = useState("");
 
-    const { cartItems, getTotalPrice, clearCart } = useContext(CartContext);
+    const { cartItems, getTotalPrice, clearCart, getQuantity, isInCart } = useContext(CartContext);
 
     const createOrder = async ({ name, phone, email }) => {
         setLoading(true);
-
+    
         try {
             const objOrder = {
                 buyer: {
@@ -72,14 +74,25 @@ const Checkout = () => {
     }
 
     if (loading) {
-        return <h1 className="detail">Cargando...</h1>;
+        return (
+            <div className='d-flex justify-content-center detail p-3'>
+                <Spinner animation="border" variant="warning" />
+            </div>
+        );
     }
 
     if (orderId) {
+    // const total = getTotalPrice();
+    // const items = cartItems();
+
         return (
             <div className="detail text-center p-3">
                 <h1>Compra finalizada</h1>
+                <p>Tu compra por {}</p>
+                <p>{}</p>
+                <p>{}</p>
                 <p>Tu número de orden es {orderId}</p>
+
                 <Link to="/" className="btn btn-primary m-1">Volver al inicio</Link>
             </div>
         )

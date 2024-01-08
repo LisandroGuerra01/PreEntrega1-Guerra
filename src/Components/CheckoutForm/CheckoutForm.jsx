@@ -20,27 +20,27 @@ const CheckoutForm = ({ onConfirm }) => {
 
     return (
         <div>
-        <form onSubmit={handleConfirm}>
-            <input className="mt-1"
-                type="text"
-                placeholder="Nombre"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            /><br/>
-            <input className="mt-1"
-                type="tel"
-                placeholder="Telefono"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-            /><br/>
-            <input className="mt-1"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            /><br/>
-            <button type="submit" className="btn btn-primary mt-1">Confirmar</button>
-        </form>
+            <form onSubmit={handleConfirm}>
+                <input className="mt-1"
+                    type="text"
+                    placeholder="Nombre"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                /><br />
+                <input className="mt-1"
+                    type="tel"
+                    placeholder="Telefono"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                /><br />
+                <input className="mt-1"
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                /><br />
+                <button type="submit" className="btn btn-primary mt-1">Confirmar</button>
+            </form>
         </div>
     );
 }
