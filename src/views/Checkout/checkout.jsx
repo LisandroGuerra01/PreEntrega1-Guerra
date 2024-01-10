@@ -100,9 +100,10 @@ const Checkout = () => {
                         </div>
                     ))
                 }
-                <span className="fs-3">Total de tu compra: ${totalPrice}</span>
+                <span className="fs-5">Total ${totalPrice}</span>
+                <p>Fue realizada</p>
 
-                <p>Tu número de orden es {orderId}</p>
+                <p>El ID de tu orden es {orderId}</p>
 
                 <Link to="/" className="btn btn-primary m-1">Volver al inicio</Link>
                 </div>
