@@ -9,8 +9,8 @@ const Cart = () => {
     if (getQuantity() === 0) {
         return (
             <div className="container">
-                    <h2 className="display-4 detail">Tu carrito está vacío!</h2>
-                    <Link to="/" className="btn btn-primary mb-3">Volver al inicio</Link>
+                <h2 className="display-4 detail">Tu carrito está vacío!</h2>
+                <Link to="/" className="btn btn-primary mb-3">Volver al inicio</Link>
             </div>
         )
     }
@@ -38,7 +38,9 @@ const Cart = () => {
                     <tbody>
                         {cartItems.map((item) => (
                             <tr key={item.id}>
-                                <td>{item.img}hacer que ande la imagen </td>
+                                <td>
+                                    <img src={item.image} alt={item.name} className="img-thumbnail" width={100} height={100} />
+                                </td>
                                 <td>{item.name}</td>
                                 <td>{item.quantity}</td>
                                 <td>${item.price}</td>
