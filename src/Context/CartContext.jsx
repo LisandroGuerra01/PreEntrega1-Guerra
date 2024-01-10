@@ -10,7 +10,7 @@ const CartContext = createContext (
 const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
-    console.log(cartItems);
+    // console.log(cartItems);
 
     // función para agregar un item al carrito
     const addToCart = (item, quantity) => {
@@ -52,6 +52,11 @@ const CartProvider = ({ children }) => {
         return cartItems.some((item) => item.id === id);
     };
 
+    //función para obtener un item del carrito
+    const getItem = (id) => {
+        return cartItems.find((item) => item.id === id);
+    };
+    
     //retornamos el provider del contexto
     return (
         <CartContext.Provider
@@ -63,6 +68,7 @@ const CartProvider = ({ children }) => {
                 getTotalPrice,
                 getQuantity,
                 isInCart,
+                getItem,
             }}
             >
                 {children}

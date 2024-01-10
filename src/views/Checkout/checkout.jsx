@@ -7,12 +7,11 @@ import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
 
 
-
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [orderId, setOrderId] = useState("");
 
-    const { cartItems, getTotalPrice, clearCart, getQuantity, isInCart } = useContext(CartContext);
+    const { cartItems, getTotalPrice, clearCart } = useContext(CartContext);
 
     const createOrder = async ({ name, phone, email }) => {
         setLoading(true);
@@ -82,8 +81,6 @@ const Checkout = () => {
     }
 
     if (orderId) {
-    // const total = getTotalPrice();
-    // const items = cartItems();
 
         return (
             <div className="detail text-center p-3">

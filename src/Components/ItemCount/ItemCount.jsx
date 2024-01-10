@@ -1,14 +1,21 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 
-const ItemCount = ({ stock, handleOnAdd }) => {
+const ItemCount = ({ stock, handleOnAdd, itemInCart }) => {
     const [count, setCount] = useState(0);
 
+
     const handleIncrement = () => {
-        if (count < stock) {
-            setCount(count + 1);
+        if(itemInCart) {
+            if (count < stock - itemInCart.quantity) {
+                setCount(count + 1);
+            }
+        } else {
+            if (count < stock) {
+                setCount(count + 1);
         }
-    };
+    }
+}
 
     const handleDecrement = () => {
         if (count > 0) {
@@ -21,6 +28,7 @@ const ItemCount = ({ stock, handleOnAdd }) => {
             handleOnAdd(count);
         }
     };
+
 
     return (
         <div className='p-3'>
