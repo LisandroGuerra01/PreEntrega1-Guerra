@@ -16,7 +16,7 @@ const Cart = () => {
     }
 
     return (
-
+        
         <div className="container">
             <div className="">
                 <h1 className="pt-3 card-body detail"><span>TU COMPRA</span></h1>
@@ -24,10 +24,10 @@ const Cart = () => {
                 <button className="btn btn-danger" onClick={clearCart}>Vaciar carrito</button>
             </div>
             <div className="col-6">
-                <table className="table table-striped">
+                <table className="table table-striped text-center">
                     <thead>
                         <tr>
-                            <th scope="col">IMAGEN</th>
+                            <th scope="col"></th>
                             <th scope="col">Producto</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Precio unitario</th>
@@ -39,7 +39,7 @@ const Cart = () => {
                         {cartItems.map((item) => (
                             <tr key={item.id}>
                                 <td>
-                                    <img src={item.image} alt={item.name} className="img-thumbnail" width={100} height={100} />
+                                    <img src={item.img} alt={item.name} className="border border-2 rounded-3 bg-light" width={70}/>
                                 </td>
                                 <td>{item.name}</td>
                                 <td>{item.quantity}</td>

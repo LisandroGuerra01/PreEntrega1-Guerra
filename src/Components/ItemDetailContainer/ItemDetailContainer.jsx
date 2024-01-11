@@ -18,6 +18,7 @@ const ItemDetailContainer = ({product}) => {
             id: product.id,
             name: product.name,
             price: product.price,
+            img: product.img,
         }
 
         addToCart(item, quantity)
