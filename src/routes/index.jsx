@@ -9,6 +9,10 @@ import PageProductCategory from "../views/Category";
 import LayOutPublic from "../layout/LayOutPublic";
 import Cart from "../views/Cart/cart";
 import Checkout from "../views/Checkout/checkout";
+import Login from "../views/Login/login";
+import Register from "../views/Register/register";
+import Profile from "../views/Profile/profile.jsx";
+import Order from "../views/Order/order";
 import Proximamente from "../views/Proximamente/proximamente";
 
 const router = createBrowserRouter([
@@ -37,6 +41,22 @@ const router = createBrowserRouter([
             {
                 path: "/checkout",
                 element: <Checkout />,
+            },
+            {
+                path: "/login",
+                element: <Login />,
+            },
+            {
+                path: "/register",
+                element: <Register />,
+            },
+            {
+                path: "/profile",
+                element: <Profile />,
+            },
+            {
+                path: "/order/:orderId",
+                element: <Order />,
             },
             {
                 path: "/proximamente",
