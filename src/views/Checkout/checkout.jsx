@@ -5,7 +5,7 @@ import { db } from "../../Components/Firebase/config.js";
 import { addDoc, collection, documentId, getDocs, query, Timestamp, where, writeBatch } from "@firebase/firestore";
 import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
-import { useAuth } from "../../Context/AuthContext.jsx";
+
 
 
 const Checkout = () => {
@@ -14,7 +14,7 @@ const Checkout = () => {
     const [cartItemCopy, setCartItemCopy] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
 
-    const { currentUser } = useAuth();
+
 
     const { cartItems, getTotalPrice, clearCart } = useContext(CartContext);
 
