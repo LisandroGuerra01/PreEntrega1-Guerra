@@ -3,13 +3,16 @@
 import "./App.css";
 import { CartProvider } from "./Context/CartContext";
 import Routes from "./routes/index";
+import { AuthProvider } from "./Context/AuthContext";
 
 
 const App = () => {
     return (
-        <CartProvider>
-            <Routes />
-        </CartProvider>
+        <AuthProvider>
+            <CartProvider>
+                <Routes />
+            </CartProvider>
+        </AuthProvider>
     )
 }
 export default App;
