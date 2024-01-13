@@ -50,8 +50,10 @@ const ItemDetailContainer = ({ product, currentUser }) => {
                                 {
                                     !currentUser
                                         ?
-                                        <Link to="/login" className="btn w-100">
-                                            <FiUserPlus /> Iniciar sesión
+                                        <Link to="/login">
+                                            <button>
+                                            <FiUserPlus /> Iniciar sesión para agregar al carrito.
+                                            </button>
                                         </Link>
                                         :
                                         <div>

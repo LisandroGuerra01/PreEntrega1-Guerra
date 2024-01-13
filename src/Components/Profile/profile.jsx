@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
-import { Button } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
-import { db } from "../../Components/Firebase/config";
+import { db } from "../../Components/Firebase/config.js";
 import { addDoc, collection, Timestamp } from "@firebase/firestore";
 import { FiUser } from "react-icons/fi";
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
+
 
 const Profile = ({ cartItems, clearCart, currentUser, logout }) => {
     const saveCartPending = async () => {
@@ -34,13 +36,28 @@ const Profile = ({ cartItems, clearCart, currentUser, logout }) => {
     }
 
     return (
-        <>
-            <i className="fs-2 text-white text-decoration-none">
-                <FiUser />
-            </i>
-            <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>
-        </>
+        <div>
+            <NavDropdown title={<FiUser />} id="navbarScrollingDropdown" className="text-light fs-3">
+                <NavDropdown.Item>
+                    <div className='col-3 font-nav'>
+                        {currentUser.email}
+                    </div>
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item>
+                    <Link className='col-3 font-nav' to='/profile'>
+                        Mis órdenes
+                    </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={handleLogout}>
+                    <div className='col-3 font-nav'>
+                        Logout
+                    </div>
+                </NavDropdown.Item>
+            </NavDropdown>
+        </div>
     );
-};
+}
+
 
 export default Profile;

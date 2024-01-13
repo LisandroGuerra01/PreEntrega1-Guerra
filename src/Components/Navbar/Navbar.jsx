@@ -9,6 +9,8 @@ import Profile from "../Profile/profile";
 import { useAuth } from "../../Context/AuthContext";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
+import { FiUser } from "react-icons/fi";
+
 
 function NavScrollExample() {
 
@@ -17,31 +19,9 @@ function NavScrollExample() {
 
 
     return (
-        <Navbar expand="lg" data-bs-theme="dark" fixed="top" className='header p-3 text-center'>
+        <Navbar expand="lg" data-bs-theme="dark" fixed="top" style={{ backgroundColor: 'rgba(0, 0, 0, 0.336)' }} className='text-center'>
             <Navbar.Brand className='col-4'><Link to='/'><Logo ></Logo></Link></Navbar.Brand>
             <Navbar.Collapse className="col-8 justify-content-end px-5 fs-5 fw-semibold">
-                {currentUser ? (
-                    <div className="
-                                border-light
-                                rounded-pill
-                                text-light
-                                px-2
-                                py-1
-                                ms-3
-                                ">
-                        {currentUser.email}
-                    </div>
-                )
-                    : (
-                        <Link to="/login" className="
-                                    btn btn-outline-success
-                                    btn-block
-                                    text-uppercase
-                                    ms-3
-                                    ">
-                            Ingresar
-                        </Link>
-                    )}
                 <Nav navbarScroll >
                     <NavDropdown title="PRODUCTOS" id="navbarScrollingDropdown">
                         <div className='col-3'>
@@ -113,7 +93,6 @@ function NavScrollExample() {
                         </div>
                     </NavDropdown>
                 </Nav>
-                <Link to='/Cart' ><CartWidget /></Link>
                 <Link to="/Profile">
                     <Profile
                         cartItems={cartItems}
@@ -121,6 +100,18 @@ function NavScrollExample() {
                         currentUser={currentUser}
                         logout={logout} />
                 </Link>
+                <Nav.Link>
+                    {currentUser ? (
+                        <div className="px-2 py-1 ms-3 ">
+                            <Link to='/Cart' ><CartWidget /></Link>
+                        </div>
+                    )
+                        : (
+                            <div className="px-2 py-1 ms-3">
+                                <Link to="/login" className='text-white fs-3'><FiUser /></Link>
+                            </div>
+                        )}
+                </Nav.Link>
             </Navbar.Collapse>
         </Navbar >
     );
