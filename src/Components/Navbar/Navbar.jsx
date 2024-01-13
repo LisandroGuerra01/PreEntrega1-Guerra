@@ -20,6 +20,28 @@ function NavScrollExample() {
         <Navbar expand="lg" data-bs-theme="dark" fixed="top" className='header p-3 text-center'>
             <Navbar.Brand className='col-4'><Link to='/'><Logo ></Logo></Link></Navbar.Brand>
             <Navbar.Collapse className="col-8 justify-content-end px-5 fs-5 fw-semibold">
+                {currentUser ? (
+                    <div className="
+                                border-light
+                                rounded-pill
+                                text-light
+                                px-2
+                                py-1
+                                ms-3
+                                ">
+                        {currentUser.email}
+                    </div>
+                )
+                    : (
+                        <Link to="/login" className="
+                                    btn btn-outline-success
+                                    btn-block
+                                    text-uppercase
+                                    ms-3
+                                    ">
+                            Ingresar
+                        </Link>
+                    )}
                 <Nav navbarScroll >
                     <NavDropdown title="PRODUCTOS" id="navbarScrollingDropdown">
                         <div className='col-3'>
@@ -92,11 +114,13 @@ function NavScrollExample() {
                     </NavDropdown>
                 </Nav>
                 <Link to='/Cart' ><CartWidget /></Link>
-                <Profile
-                    cartItems={cartItems}
-                    clearCart={clearCart}
-                    currentUser={currentUser}
-                    logout={logout} />
+                <Link to="/Profile">
+                    <Profile
+                        cartItems={cartItems}
+                        clearCart={clearCart}
+                        currentUser={currentUser}
+                        logout={logout} />
+                </Link>
             </Navbar.Collapse>
         </Navbar >
     );

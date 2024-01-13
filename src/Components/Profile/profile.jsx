@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Button } from "react-bootstrap";
-import { BsPerson } from 'react-icons/Bs';
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { FaRegUser } from "react-icons/fa";
 import { db } from "../../Components/Firebase/config";
 import { addDoc, collection, Timestamp } from "@firebase/firestore";
+import { FiUser } from "react-icons/fi";
 
 const Profile = ({ cartItems, clearCart, currentUsers, logout }) => {
     const saveCartPending = async () => {
@@ -35,11 +36,10 @@ const Profile = ({ cartItems, clearCart, currentUsers, logout }) => {
 
     return (
         <>
-            <Link to="/profile" className="navbar-brand mx-2">
-                <Button variant="outline-success">
-                    <BsPerson />
-                </Button>
-            </Link>
+            <i className="fs-2 text-white text-decoration-none">
+                <FaRegUser />
+                <FiUser />
+            </i>
             <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>
         </>
     );
