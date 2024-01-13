@@ -35,7 +35,7 @@ const ItemCount = ({ stock, handleOnAdd, itemInCart }) => {
             <button onClick={handleDecrement} className='btn border'>-</button>
             <span className='p-3'>{count}</span>
             <button onClick={handleIncrement} className='btn border'>+</button>
-            <button onClick={handleAddToCart} className='btn btn-success mx-3'>Añadir al carrito</button>
+            <button onClick={handleAddToCart} className='btn btn-outline-success mx-3'>Añadir al carrito</button>
         </div>
     );
 };

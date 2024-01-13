@@ -51,7 +51,7 @@ const ItemDetailContainer = ({ product, currentUser }) => {
                                     !currentUser
                                         ?
                                         <Link to="/login">
-                                            <button>
+                                            <button className="btn btn-outline-primary mb-3">
                                             <FiUserPlus /> Iniciar sesión para agregar al carrito.
                                             </button>
                                         </Link>
@@ -59,8 +59,8 @@ const ItemDetailContainer = ({ product, currentUser }) => {
                                         <div>
                                             <p><span className="fw-bolder">{product.name}</span> x {quantityAdded}</p>
                                             <div className="m-1">
-                                                <Link to="/" className="btn btn-primary mx-1">Agregar y seguir comprando</Link>
-                                                <Link to="/Cart" className="btn btn-success">Agregar e ir a pagar $ {getTotalPrice()}</Link>
+                                                <Link to="/" className="btn btn-outline-primary mx-1">Agregar y seguir comprando</Link>
+                                                <Link to="/Cart" className="btn btn-outline-success">Agregar e ir a pagar $ {getTotalPrice()}</Link>
                                             </div>
                                         </div>
                                 }
