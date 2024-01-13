@@ -2,16 +2,15 @@ import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import { AlertMessage } from '../../Components/AlertMessage/alertmessage'
 import { FiUserPlus } from 'react-icons/fi'
-
 import { useAuth } from '../../Context/AuthContext';
 
 
 const Register = () => {
     const navigate = useNavigate();
-    const { singup, currentUser } = useAuth();
+    const { signup, currentUser } = useAuth();
     const [user, setUser] = useState({
-        email: '',
-        password: '',
+        email: "",
+        password: "",
     });
     const [error, setError] = useState('');
 
@@ -22,9 +21,9 @@ const Register = () => {
     }, [currentUser, navigate]);
 
     const handleSubmit = async (e) => {
-        e.poreventDefault();
+        e.preventDefault();
         try {
-            await singup(user.email, user.password);
+            await signup(user.email, user.password);
             navigate('/');
         } catch (error) {
             setError(error.message);
@@ -33,6 +32,7 @@ const Register = () => {
 
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
+        console.log(user.email, user.password);
     };
 
     return (

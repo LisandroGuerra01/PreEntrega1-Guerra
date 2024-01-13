@@ -3,13 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import { AlertMessage } from "../../Components/AlertMessage/alertmessage";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa6";
 import { FaUnlock } from "react-icons/fa";
 import { FiUserPlus } from "react-icons/fi";
 
 const Login = () => {
     const navigate = useNavigate();
-    const { login, loginGoogle, loginFacebook, resetPassword, currentUser } = useAuth();
+    const { login, loginGoogle, resetPassword, currentUser } = useAuth();
 
     const [user, setUser] = useState({
         email: "",
@@ -43,15 +42,6 @@ const Login = () => {
         }
     };
 
-    const handleFacebookLogin = async () => {
-        try {
-            await loginFacebook();
-            navigate("/");
-        } catch (error) {
-            setError(error.message);
-        }
-    };
-
     const handleResetPassword = async (e) => {
         e.preventDefault();
         if (!user.email) {
@@ -74,7 +64,7 @@ const Login = () => {
         <div className="container detail">
             <div className="row justify-content-center">
                 <div className="col-md-5">
-                    <h1 className="text-center my-5">Iniciar sesión</h1>
+                    <h1 className="text-center">Iniciar sesión</h1>
                     {error && <AlertMessage message={error} />}
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
@@ -123,15 +113,7 @@ const Login = () => {
                             <FcGoogle /> Iniciar sesión con Google
                         </button>
                     </div>
-                    <div className="text-center mt-3">
-                        <button
-                            className="btn w-100"
-                            onClick={handleFacebookLogin}
-                        >
-                            <FaFacebook /> Iniciar sesión con Facebook
-                        </button>
-                    </div>
-                    <div className="text-center mt-3">
+                    <div className="text-center m-3">
                         <button
                             className="btn w-100"
                             onClick={handleResetPassword}

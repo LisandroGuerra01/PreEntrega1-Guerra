@@ -4,16 +4,18 @@ import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
 import "../../views/Detail/detail.css";
+import { FiUserPlus } from 'react-icons/fi'
 
-const ItemDetailContainer = ({product}) => {
+
+const ItemDetailContainer = ({ product, currentUser }) => {
 
     const [quantityAdded, setQuantityAdded] = useState(0);
 
-    const { addToCart, getTotalPrice, getItem} = useContext(CartContext);
+    const { addToCart, getTotalPrice, getItem } = useContext(CartContext);
 
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
-    
+
         const item = {
             id: product.id,
             name: product.name,
@@ -22,35 +24,45 @@ const ItemDetailContainer = ({product}) => {
         }
 
         addToCart(item, quantity)
-    
+
     }
 
     return (
         <div>
             <div className="text-center">
                 <div className="card-body detail">
-                <h5 className="fs-1 pt-3"><span>{product.name}</span></h5>
+                    <h5 className="fs-1 pt-3"><span>{product.name}</span></h5>
                 </div>
-                <img src={product.img} alt={product.name} className="img-thumbnail"/>
+                <img src={product.img} alt={product.name} className="img-thumbnail" />
                 <div>
                     <h5>{product.description}</h5>
                     <p>${product.price}</p>
                     {
-                        quantityAdded === 0
-                        ?
-                        <ItemCount 
-                        stock={product.stock}
-                        handleOnAdd={handleOnAdd}
-                        itemInCart={getItem(product.id)}
-                        />
-                        :
-                        <div>
-                            <p><span className="fw-bolder">{product.name}</span> x {quantityAdded}</p>
-                            <div className="m-1">
-                            <Link to="/" className="btn btn-primary mx-1">Agregar y seguir comprando</Link>
-                            <Link to="/Cart" className="btn btn-success">Agregar e ir a pagar $ {getTotalPrice()}</Link>
+                        quantityAdded === 0 && currentUser
+                            ?
+                            <ItemCount
+                                stock={product.stock}
+                                handleOnAdd={handleOnAdd}
+                                itemInCart={getItem(product.id)}
+                            />
+                            :
+                            <div>
+                                {
+                                    !currentUser
+                                        ?
+                                        <Link to="/login" className="btn w-100">
+                                            <FiUserPlus /> Iniciar sesión
+                                        </Link>
+                                        :
+                                        <div>
+                                            <p><span className="fw-bolder">{product.name}</span> x {quantityAdded}</p>
+                                            <div className="m-1">
+                                                <Link to="/" className="btn btn-primary mx-1">Agregar y seguir comprando</Link>
+                                                <Link to="/Cart" className="btn btn-success">Agregar e ir a pagar $ {getTotalPrice()}</Link>
+                                            </div>
+                                        </div>
+                                }
                             </div>
-                        </div>
                     }
                 </div>
             </div>

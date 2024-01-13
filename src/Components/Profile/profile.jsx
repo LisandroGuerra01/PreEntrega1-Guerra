@@ -1,17 +1,16 @@
 /* eslint-disable react/prop-types */
 import { Button } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
-import { FaRegUser } from "react-icons/fa";
 import { db } from "../../Components/Firebase/config";
 import { addDoc, collection, Timestamp } from "@firebase/firestore";
 import { FiUser } from "react-icons/fi";
 
-const Profile = ({ cartItems, clearCart, currentUsers, logout }) => {
+const Profile = ({ cartItems, clearCart, currentUser, logout }) => {
     const saveCartPending = async () => {
         const objCartPending = {
             cartItems,
             date: Timestamp.fromDate(new Date()),
-            userId: currentUsers.uid,
+            userId: currentUser.uid,
         };
 
         try {
@@ -30,14 +29,13 @@ const Profile = ({ cartItems, clearCart, currentUsers, logout }) => {
         logout();
     }
 
-    if (!currentUsers) {
+    if (!currentUser) {
         return <Navigate to="/login" />;
     }
 
     return (
         <>
             <i className="fs-2 text-white text-decoration-none">
-                <FaRegUser />
                 <FiUser />
             </i>
             <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>

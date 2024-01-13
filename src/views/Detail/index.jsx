@@ -2,6 +2,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../Components/Firebase/config.js';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useAuth } from '../../Context/AuthContext.jsx';
 import ItemDetailContainer from "../../Components/ItemDetailContainer/ItemDetailContainer";
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -12,6 +13,7 @@ const PageProductDetail = () => {
     const [loading, setLoading] = useState(true);
 
     const { productId } = useParams();
+    const { currentUser } = useAuth();
 
     useEffect(() => {
         const getProductFirebase = async () => {
@@ -35,7 +37,7 @@ const PageProductDetail = () => {
 
     return (
         <div className='container'>
-            <ItemDetailContainer product={product} />
+            <ItemDetailContainer product={product} currentUser={currentUser} />
         </div>
     )
 }
