@@ -2,12 +2,12 @@
 import { useState } from "react";
 
 const CheckoutForm = ({ onConfirm }) => {
-    const [phone, setPhone] = useState("");
     const [cardholderName, setCardholderName] = useState("");
     const [cardNumber, setCardNumber] = useState("");
     const [expirationDate, setExpirationDate] = useState("");
     const [securityCode, setSecurityCode] = useState("");
     const [dni, setDni] = useState("");
+    const [phone, setPhone] = useState("");
 
     const handleConfirm = (e) => {
         e.preventDefault();
@@ -90,7 +90,7 @@ const CheckoutForm = ({ onConfirm }) => {
                             DNI
                         </label>
                         <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             id="dni"
                             value={dni}
@@ -103,7 +103,7 @@ const CheckoutForm = ({ onConfirm }) => {
                             Telefono
                         </label>
                         <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             id="phone"
                             value={phone}

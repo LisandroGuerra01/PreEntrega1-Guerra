@@ -58,7 +58,7 @@ const ItemDetailContainer = ({ product, currentUser }) => {
                                         :
                                         <div>
                                             <p><span className="fw-bolder">{product.name}</span> x {quantityAdded}</p>
-                                            <div className="m-1">
+                                            <div className="mb-3">
                                                 <Link to="/" className="btn btn-outline-primary mx-1">Agregar y seguir comprando</Link>
                                                 <Link to="/Cart" className="btn btn-outline-success">Agregar e ir a pagar $ {getTotalPrice()}</Link>
                                             </div>

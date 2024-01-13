@@ -24,14 +24,14 @@ const Order = () => {
 
     if (loading) {
         return (
-                <div className='d-flex justify-content-center detail p-3'>
-                    <Spinner animation="border" variant="warning" />
-                </div>
+            <div className='d-flex justify-content-center detail p-3'>
+                <Spinner animation="border" variant="warning" />
+            </div>
         );
     }
 
     return (
-        <div className="container">
+        <div className="container detail">
             <h2 className="text-center text-uppercase my-5">Orden N° {order.id}</h2>
             <div className="row">
                 <div className="col-12 col-md-6">
@@ -55,6 +55,7 @@ const Order = () => {
                     <table className="table table-striped">
                         <thead>
                             <tr>
+                                <th scope="col"></th>
                                 <th scope="col">Producto</th>
                                 <th scope="col">Cantidad</th>
                                 <th scope="col">Precio unitario</th>
@@ -64,6 +65,9 @@ const Order = () => {
                         <tbody>
                             {order.items.map((item) => (
                                 <tr key={item.id}>
+                                    <td className='d-flex justify-content-center'>
+                                        <img src={item.img} alt={item.name} className="rounded-3" width={70} />
+                                    </td>
                                     <td>{item.name}</td>
                                     <td>{item.quantity}</td>
                                     <td>${item.price}</td>
@@ -78,12 +82,12 @@ const Order = () => {
                 <div className="col-12">
                     <h4 className="text-center text-uppercase">Estado de la orden</h4>
                     <ul className="list-group">
-                        <li className="list-group-item">Estado: {order.status}</li>
+                        <li className="list-group-item mb-3">Estado: {order.status}</li>
                     </ul>
                 </div>
             </div>
         </div>
     );
 }
-    
+
 export default Order;

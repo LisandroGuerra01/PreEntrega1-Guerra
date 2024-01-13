@@ -31,7 +31,7 @@ const Profile = () => {
     if (orders.length === 0) {
 
         return (
-            <div className="container detail">
+            <div className="container">
                 {loading ? (
                     <div className="text-center">
                         <div className='d-flex justify-content-center detail p-3'>

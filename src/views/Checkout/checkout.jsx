@@ -12,22 +12,23 @@ import Spinner from 'react-bootstrap/Spinner';
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [orderId, setOrderId] = useState("");
-    const [cartItemCopy, setCartItemCopy] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
 
     const { cartItems, getTotalPrice, clearCart } = useContext(CartContext);
 
     const { currentUser } = useAuth();
 
-    const createOrder = async ({ name, phone, email }) => {
+    const createOrder = async ({ phone, cardholderName, cardNumber, expirationDate, securityCode, dni }) => {
         setLoading(true);
-    
+
         try {
             const objOrder = {
                 buyer: {
-                    name,
                     phone,
-                    email,
+                    cardholderName,
+                    cardNumber,
+                    expirationDate,
+                    securityCode,
+                    dni
                 },
                 items: cartItems,
                 total: getTotalPrice(),
@@ -66,8 +67,6 @@ const Checkout = () => {
                 await batch.commit();
                 const docRef = await addDoc(collection(db, "orders"), objOrder);
                 setOrderId(docRef.id);
-                setCartItemCopy(cartItems);
-                setTotalPrice(getTotalPrice());
                 clearCart();
             } else {
                 console.log("Productos sin stock");
@@ -93,29 +92,29 @@ const Checkout = () => {
     if (orderId) {
 
         return (
-            <div className="detail p-3">
-                <div className="border border-2 rounded-3 bg-light col-4 align-self-center d-grid p-4">
-                <h3 className="fs-1 mb-5">¡Compra finalizada!</h3>
-                <p>Tu orden por:</p>
-                {
-                    cartItemCopy.map((item) => (
-                        <div key={item.id}>
-                            <span>{item.name} x </span>
-                            <span>{item.quantity} x </span>
-                            <span>${item.price}</span>
-                        </div>
-                    ))
-                }
-                <span className="fs-5">Total ${totalPrice}</span>
-                <p>Fue realizada</p>
-
-                <p>El ID de tu orden es {orderId}</p>
-
-                <Link to="/" className="btn btn-primary m-1">Volver al inicio</Link>
+            <div className="container-fluid detail">
+            <div className="row justify-content-center my-5">
+                <div className="col-12 col-md-6 col-lg-4 border p-5 rounded-3 shadow bg-body mx-auto my-auto text-center">
+                    <h2 className="text-center mb-5">Gracias por tu compra!</h2>
+                    <p className="mb-5">
+                        Tu numero de orden es: <strong>{orderId}</strong>
+                    </p>
+                    <p className="mb-5">
+                        Podes ver el detalle de tu compra en el siguiente link:
+                        <br />
+                        <Link to={`/order/${orderId}`}>Detalle de la compra</Link>
+                    </p>
+                    <p className="mb-5">
+                        Tambien te enviamos un mail con el detalle de tu compra.
+                    </p>
+                    <p className="mb-5">
+                        <Link to="/">Volver al inicio</Link>
+                    </p>
                 </div>
             </div>
-        )
-    }
+        </div>
+    );
+}
 
     return (
         <div className="detail p-3 container">
