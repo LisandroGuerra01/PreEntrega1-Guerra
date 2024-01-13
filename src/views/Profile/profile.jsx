@@ -3,6 +3,7 @@ import { useAuth } from '../../Context/AuthContext';
 import { db } from '../../Components/Firebase/config.js';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 const Profile = () => {
@@ -30,14 +31,11 @@ const Profile = () => {
     if (orders.length === 0) {
 
         return (
-            <div className="container">
+            <div className="container detail">
                 {loading ? (
                     <div className="text-center">
-                        <div className="
-                    spinner-border 
-                    text-secondary
-                    " role="status">
-                            <span className="visually-hidden">Cargando...</span>
+                        <div className='d-flex justify-content-center detail p-3'>
+                            <Spinner animation="border" variant="warning" />
                         </div>
                     </div>
                 ) : (
