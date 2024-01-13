@@ -24,73 +24,73 @@ function NavScrollExample() {
             <Navbar.Collapse className="col-8 justify-content-end px-5 fs-5 fw-semibold">
                 <Nav navbarScroll >
                     <NavDropdown title="PRODUCTOS" id="navbarScrollingDropdown">
-                        <div className='col-3'>
-                            <NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <div className='col-3'>
                                 <Link className='font-nav' to='/category/sabores'>
                                     SABORES
                                 </Link>
-                            </NavDropdown.Item>
-                        </div>
-                        <div className='col-3'>
-                            <NavDropdown.Item>
+                            </div>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <div className='col-3'>
                                 <Link className='font-nav' to='/category/tentaciones'>
                                     TENTACIONES
                                 </Link>
-                            </NavDropdown.Item>
-                        </div>
-                        <div className='col-3'>
-                            <NavDropdown.Item>
+                            </div>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <div className='col-3'>
                                 <Link className='font-nav' to='/category/pre-envasados'>
                                     PRE ENVASADOS
                                 </Link>
-                            </NavDropdown.Item>
-                        </div>
+                            </div>
+                        </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="DÓNDE ESTAMOS" id="navbarScrollingDropdown">
-                        <div className='col-3'>
-                            <NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <div className='col-3'>
                                 <Link className='font-nav' to='/proximamente'>
                                     LOCALES
                                 </Link>
-                            </NavDropdown.Item>
-                        </div>
-                        <div className='col-3'>
-                            <NavDropdown.Item>
+                            </div>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <div className='col-3'>
                                 <Link className='font-nav' to='/proximamente'>
                                     PUNTOS DE VENTA
                                 </Link>
-                            </NavDropdown.Item>
-                        </div>
+                            </div>
+                        </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="NOSOTROS" id="navbarScrollingDropdown">
-                        <div className='col-3'>
-                            <NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <div className='col-3'>
                                 <Link className='font-nav' to='/proximamente'>
                                     QUIÉNES SOMOS
                                 </Link>
-                            </NavDropdown.Item>
-                        </div>
-                        <div className='col-3'>
-                            <NavDropdown.Item>
+                            </div>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <div className='col-3'>
                                 <Link className='font-nav' to='/proximamente'>
                                     NOVEDADES
                                 </Link>
-                            </NavDropdown.Item>
-                        </div>
-                        <div className='col-3'>
-                            <NavDropdown.Item>
+                            </div>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <div className='col-3'>
                                 <Link className='font-nav' to='/proximamente'>
                                     AQUÍ TU FRANQUICIA
                                 </Link>
-                            </NavDropdown.Item>
-                        </div>
-                        <div className='col-3'>
-                            <NavDropdown.Item>
+                            </div>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <div className='col-3'>
                                 <Link className='font-nav' to='/proximamente'>
                                     CONTACTO
                                 </Link>
-                            </NavDropdown.Item>
-                        </div>
+                            </div>
+                        </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Link to="/Profile">
