@@ -31,7 +31,7 @@ const Profile = () => {
     if (orders.length === 0) {
 
         return (
-            <div className="container">
+            <div className="container detail">
                 {loading ? (
                     <div className="text-center">
                         <div className='d-flex justify-content-center detail p-3'>
@@ -61,23 +61,18 @@ const Profile = () => {
     }
 
     return (
-        <div className="container">
+        <div className="container detail">
             <div className="row my-4">
                 <div className="col-12">
                     <h2 className="text-center">Mis ordenes</h2>
                     <hr />
                 </div>
             </div>
-            <div className="row">
+            <div className="row mb-3">
                 <div className="col-12">
                     {loading ? (
-                        <div className="text-center">
-                            <div className="
-                            spinner-border 
-                            text-secondary
-                            " role="status">
-                                <span className="visually-hidden">Cargando...</span>
-                            </div>
+                        <div className='d-flex justify-content-center p-3'>
+                            <Spinner animation="border" variant="warning" />
                         </div>
                     ) : (
                         <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -92,10 +87,8 @@ const Profile = () => {
                                     shadow-lg
                                     rounded
                                     ">
-                                        <div className="
-                                            card-body
-                                        ">
-                                            <h5 className="card-title">Orden: {order.id}</h5>
+                                        <div className="card-body">
+                                            <p className="">Orden: {order.id}</p>
                                             <p className="card-text">Estado: {order.status}</p>
                                             <p className="card-text">Total: ${order.total}</p>
                                             <Link to={`/order/${order.id}`} className="btn btn-outline-success">Ver detalle</Link>
@@ -109,6 +102,7 @@ const Profile = () => {
             </div>
         </div >
     );
+
 };
 
 export default Profile;

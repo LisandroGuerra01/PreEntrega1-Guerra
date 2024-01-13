@@ -110,6 +110,7 @@ function NavScrollExample() {
                             <div className="px-2 py-1 ms-3">
                                 <Link to="/login" className='text-white fs-3'><FiUser /></Link>
                             </div>
+                            
                         )}
                 </Nav.Link>
             </Navbar.Collapse>
