@@ -27,7 +27,7 @@ const PageProductCategory = () => {
 
     if (loading) {
         return (
-            <div className='d-flex justify-content-center detail'>
+            <div className='d-flex justify-content-center detail mb-3'>
                 <Spinner animation="border" variant="warning" />
             </div>
         );

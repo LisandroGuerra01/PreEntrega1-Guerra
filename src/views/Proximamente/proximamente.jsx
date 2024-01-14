@@ -26,7 +26,7 @@ const Proximamente = () => {
         fontSize: `${24 * zoomFactor}px`,
         fontWeight: 'bold',
         color: '#333',
-        transform: `scale(${zoomFactor})`, // Eliminada la rotación
+        transform: `scale(${zoomFactor})`,
         transition: 'transform 1s ease, font-size 1s ease',
     };
 

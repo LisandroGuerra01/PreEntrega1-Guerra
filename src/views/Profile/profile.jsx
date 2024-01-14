@@ -71,7 +71,7 @@ const Profile = () => {
             <div className="row mb-3">
                 <div className="col-12">
                     {loading ? (
-                        <div className='d-flex justify-content-center p-3'>
+                        <div className='d-flex justify-content-center p-3 mb-3'>
                             <Spinner animation="border" variant="warning" />
                         </div>
                     ) : (

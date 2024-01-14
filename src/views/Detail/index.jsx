@@ -28,7 +28,7 @@ const PageProductDetail = () => {
 
     if (loading) {
         return (
-            <div className='d-flex justify-content-center detail p-3'>
+            <div className='d-flex justify-content-center detail p-3 mb-3'>
                 <Spinner animation="border" variant="warning" />
             </div>
         );
