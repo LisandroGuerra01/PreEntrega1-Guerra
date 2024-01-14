@@ -1,36 +1,44 @@
-import data from "../../Components/Json/arrayProductos.json";
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import { db } from '../../Components/Firebase/config.js';
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../Header/Header";
-import "./category.css"
+import CardProduct from "../../Components/CardProduct/CardProduct";
+import Spinner from 'react-bootstrap/Spinner';
+import Header from './header.jsx';
 
-const { data: { items } } = data;
-const PageCategory = () => {
 
-    const { id } = useParams();
+const PageProductCategory = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const products = items.filter((item) => item.category === id);
+    const { categoryId } = useParams();
+
+    useEffect(() => {
+        const getProductsFirebase = async () => {
+            const productsCollection = collection(db, 'products');
+            const q = query(productsCollection, where('category', '==', categoryId));
+            const productsSnapshot = await getDocs(q);
+            const productsList = productsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setProducts(productsList);
+            setLoading(false);
+        };
+        getProductsFirebase();
+    }, [categoryId]);
+
+    if (loading) {
+        return (
+            <div className='d-flex justify-content-center detail mb-3'>
+                <Spinner animation="border" variant="warning" />
+            </div>
+        );
+    }
 
     return (
-        <>
-            <Header imgPortada={"Hola"} />
-            <div className="category">
-                <h2 className="text-center m-5 fw-bold fs-1">{id.toUpperCase()}</h2>
-                <div className="row">
-                    {products.map((product) => {
-                        return (
-                            <div className="col-md-4" key={`product-${product.id}`} >
-                                <div className="text-center item">
-                                    <img src={product.img} alt={product.name}/>
-                                    <h5 className="fs-2">{product.name}</h5>
-                                    <p>{product.description}</p>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-        </>
+        <div className="container">
+            <Header /><hr />
+            <CardProduct products={products} />
+        </div>
     )
 }
 
-export default PageCategory;
+export default PageProductCategory

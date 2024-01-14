@@ -1,11 +1,11 @@
-import Header from "../Header/Header";
+import Header from "./Header";
 import ItemListContainer from "../../Components/ItemListContainer/ItemListContainer";
 
 const Home = () => {
     return (
         <div>
             <Header />
-            <ItemListContainer greeting={<div className="text-center m-5 fw-bold">Freddo Helados</div>} />
+            <ItemListContainer greeting={<div className="text-center m-5 fw-bold">Nuestros Helados</div>} />
         </div>
     )
 }

@@ -1,11 +1,12 @@
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
         <div className="text-center footer">
-            <img src="https://ar.freddo.com/wp-content/uploads/2022/08/Freddo-logo-iso-200x131.png" alt="logo de Tello" width={100}/>
+            <Link to='/'><img src="https://ar.freddo.com/wp-content/uploads/2022/08/Freddo-logo-iso-200x131.png" alt="logo de Tello" width={100}/></Link>
             <p>¡Seguinos!</p>
             <div className="icons">
                 <a href="https://www.facebook.com/freddohelados" className="mx-4"><FaFacebookF /></a>

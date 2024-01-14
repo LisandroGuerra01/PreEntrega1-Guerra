@@ -1,22 +1,44 @@
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../Components/Firebase/config.js';
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import data from '../../Components/Json/arrayProductos.json';
+import { useAuth } from '../../Context/AuthContext.jsx';
 import ItemDetailContainer from "../../Components/ItemDetailContainer/ItemDetailContainer";
+import Spinner from 'react-bootstrap/Spinner';
 
-import Header from "../../views/Header/Header";
 
-
-const { data: { items } } = data;
 
 const PageProductDetail = () => {
+    const [product, setProduct] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const { id } = useParams();
+    const { productId } = useParams();
+    const { currentUser } = useAuth();
 
-    const product = items.find((item) => item.id == id);
+    useEffect(() => {
+        const getProductFirebase = async () => {
+            const productDoc = doc(db, "products", productId);
+            const productSnapshot = await getDoc(productDoc);
+            const productData = productSnapshot.data();
+            setProduct({ id: productSnapshot.id, ...productData });
+            setLoading(false);
+        };
+        getProductFirebase();
+    }, [productId]);
+
+    if (loading) {
+        return (
+            <div className='d-flex justify-content-center detail p-3 mb-3'>
+                <Spinner animation="border" variant="warning" />
+            </div>
+        );
+    }
+
+
     return (
-        <>
-            <Header />
-            <ItemDetailContainer product={product} />
-        </>
+        <div className='container'>
+            <ItemDetailContainer product={product} currentUser={currentUser} />
+        </div>
     )
 }
 

@@ -1,9 +1,9 @@
 .portada{
-    height: 90vh;
+    height: 70vh;
 }
 
 .portada img{
-    height: 90vh;
+    height: 70vh;
     width: auto;
 }
 
@@ -11,23 +11,22 @@
     color: black;
 }
 
-.card-body{
-    margin: 100px;
+.card-body-home{
+    margin: 8rem;
 }
 
 .card-body h5{
-    font-size: 7rem;
+    font-size: 6rem;
     font-family: "Oswald";
 }
 
 .card-body p{
     font-family: "jost";
     font-weight: lighter;
-    
 }
 
 .card-body span{
-    color: rgb(40,116,252);
+    color: rgb(0, 45, 122);
 }
 .btn span{
     font-family: "Oswald";

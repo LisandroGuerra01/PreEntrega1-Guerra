@@ -1,25 +1,18 @@
 /* eslint-disable react/jsx-no-undef */
 
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar";
+import { CartProvider } from "./Context/CartContext";
 import Routes from "./routes/index";
-import Footer from "./Components/Footer/Footer";
-
+import { AuthProvider } from "./Context/AuthContext";
 
 
 const App = () => {
-
-  return (
-    <>
-      <Navbar />
-      <Routes />
-
-
-
-      <Footer />
-    </>
-
-  );
-};
-
+    return (
+        <AuthProvider>
+            <CartProvider>
+                <Routes />
+            </CartProvider>
+        </AuthProvider>
+    )
+}
 export default App;

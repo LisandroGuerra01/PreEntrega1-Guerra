@@ -1,39 +1,30 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import CardProduct from '../CardProduct/CardProduct';
-import data from '../../Components/Json/arrayProductos.json';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../Firebase/config.js"
 import Spinner from 'react-bootstrap/Spinner';
 
-const { data: { items } } = data;
-
-const getItems = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(items);
-        }, 1300);
-    });
-}
-// eslint-disable-next-line react/prop-types
 const ItemListContainer = ({ greeting }) => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+
 
     useEffect(() => {
-        getItems().then((result) => {
-            setProducts(result);
+        const getProductsFirebase = async () => {
+            const productsCollection = collection(db, "products");
+            const productsSnapshot = await getDocs(productsCollection);
+            const productsList = productsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setProducts(productsList);
             setLoading(false);
-            setError(false);
-        });
+        }; getProductsFirebase();
     }, []);
 
     if (loading) {
-        return <div className='d-flex justify-content-center m-5'><Spinner animation="border" variant="warning"/></div>;
+        return <div className='d-flex justify-content-center m-5'><Spinner animation="border" variant="warning" /></div>;
     }
 
-    if (error) {
-        return <h3>Hubo un error</h3>;
-    }
 
     return (
         <div className='container'>

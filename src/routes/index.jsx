@@ -1,26 +1,71 @@
-// eslint-disable-next-line no-unused-vars
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "../views/Home"
-import PageCategory from "../views/Category";
-import PageProductDetail from "../views/Detail/index";
-
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
+import Home from "../views/Home/index";
+import Error404 from "../views/Error/error";
+import PageProductDetail from "../views/Detail";
+import PageProductCategory from "../views/Category";
+import LayOutPublic from "../layout/LayOutPublic";
+import Cart from "../views/Cart/cart";
+import Checkout from "../views/Checkout/checkout";
+import Login from "../views/Login/login";
+import Register from "../views/Register/register";
+import Profile from "../views/Profile/profile.jsx";
+import Order from "../views/Order/order";
+import Proximamente from "../views/Proximamente/proximamente";
 
 const router = createBrowserRouter([
     {
-        path:"/",
-        element: <Home />,
-        errorElement: <div>Error 404</div>
-    },
-    {
-        path:"/category/:id",
-        element: <PageCategory />,
-    },
-    {
-        path:"/item/:id",
-        element: <PageProductDetail />,
+        path: "/",
+        element: <LayOutPublic />,
+        errorElement: <Error404 />,
+        children: [
+            {
+                index: true,
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "/category/:categoryId",
+                element: <PageProductCategory />,
+            },
+            {
+                path: "/product/:productId",
+                element: <PageProductDetail />,
+            },
+            {
+                path: "/cart",
+                element: <Cart />,
+            },
+            {
+                path: "/checkout",
+                element: <Checkout />,
+            },
+            {
+                path: "/login",
+                element: <Login />,
+            },
+            {
+                path: "/register",
+                element: <Register />,
+            },
+            {
+                path: "/profile",
+                element: <Profile />,
+            },
+            {
+                path: "/order/:orderId",
+                element: <Order />,
+            },
+            {
+                path: "/proximamente",
+                element: <Proximamente />,
+            },
+        ],
     },
 ]);
 
-const Routes = () => <RouterProvider router={router}/>
+const Routes = () => <RouterProvider router={router} />
 
-export default Routes;
+export default Routes

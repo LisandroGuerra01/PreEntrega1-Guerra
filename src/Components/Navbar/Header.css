@@ -1,5 +1,7 @@
-.header {
-position: absolute;
-width: 100%;
-background-color: rgba(0, 0, 0, 0.336);
+.font-nav {
+        text-decoration: none;
+        color: inherit;
+        display: grid;
+        text-align: center;
+        font-weight: bold;
 }

@@ -3,7 +3,7 @@
 const Logo = () => {
     return (
         <div>
-            <img src="https://ar.freddo.com/wp-content/uploads/2023/11/LOGO-gelato-tradizionale_con-claim-de-costado_blanco-600x323.png" alt="logo" width={350}/>
+            <img src="https://ar.freddo.com/wp-content/uploads/2022/08/Freddo-logo-iso.png" alt="logo" width={100} />
         </div>
     );
 };
