@@ -19,10 +19,10 @@ function NavScrollExample() {
 
 
     return (
-        <Navbar expand="lg" data-bs-theme="dark" fixed="top" style={{ backgroundColor: 'rgba(0, 0, 0, 0.336)' }} className='text-center'>
-            <Navbar.Brand className='col-4'><Link to='/'><Logo ></Logo></Link></Navbar.Brand>
-            <Navbar.Collapse className="col-8 justify-content-end px-5 fs-5 fw-semibold">
-                <Nav navbarScroll >
+        <Navbar expand="lg" data-bs-theme="dark" fixed="top" style={{ backgroundColor: 'rgba(0, 0, 0, 0.336)' }}>
+            <Navbar.Brand className='col-3 text-end'><Link to='/'><Logo ></Logo></Link></Navbar.Brand>
+            <Navbar.Collapse className="col-9 px-5 fs-5 fw-semibold">
+                <Nav navbarScroll className='col-8'>
                     <NavDropdown title="PRODUCTOS" id="navbarScrollingDropdown">
                         <NavDropdown.Item>
                             <div className='col-3'>
@@ -102,13 +102,13 @@ function NavScrollExample() {
                 </Link>
                 <Nav.Link>
                     {currentUser ? (
-                        <div className="px-2 py-1 ms-3 ">
+                        <div className="px-2 py-1 ms-3">
                             <Link to='/Cart' ><CartWidget /></Link>
                         </div>
                     )
                         : (
                             <div className="px-2 py-1 ms-3">
-                                <Link to="/login" className='text-white fs-3'><FiUser /></Link>
+                                <Link to="/login" className='text-white fs-2'><FiUser /></Link>
                             </div>
                             
                         )}
