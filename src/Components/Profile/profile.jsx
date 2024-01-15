@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Navigate } from "react-router-dom";
-import { db } from "../../Components/Firebase/config.js";
-import { addDoc, collection, Timestamp } from "@firebase/firestore";
 import { FiUser } from "react-icons/fi";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 
 
 const Profile = ({ cartItems, clearCart, currentUser, logout }) => {
-    const saveCartPending = async () => {
+
+/*     const saveCartPending = async () => {
         const objCartPending = {
             cartItems,
             date: Timestamp.fromDate(new Date()),
@@ -22,14 +21,15 @@ const Profile = ({ cartItems, clearCart, currentUser, logout }) => {
             console.log(error);
         }
     };
+ */
 
     const handleLogout = async () => {
+        await logout();
         if (cartItems.length > 0) {
-            await saveCartPending();
+            // await saveCartPending();
             clearCart();
         }
-        logout();
-    }
+    };
 
     if (!currentUser) {
         return <Navigate to="/login" />;

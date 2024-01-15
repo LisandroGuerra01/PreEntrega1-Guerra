@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom"
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer"
-import { useAuth } from "../Context/AuthContext";
+/* import { useAuth } from "../Context/AuthContext";
 import { CartContext } from "../Context/CartContext";
 import { useContext, useEffect } from "react";
 import { collection, getDocs, query, where, doc, deleteDoc } from "firebase/firestore";
-import { db } from "../Components/Firebase/config.js";
+import { db } from "../Components/Firebase/config.js"; */
 
 
 const LayOutPublic = () => {
-    const { currentUser } = useAuth();
+/*     const { currentUser } = useAuth();
     const { setCartItems } = useContext(CartContext);
 
     // trae los items del carrito del usuario logueado desde firebase y los guarda en el contexto del carrito para que esten disponibles en toda la app
@@ -44,7 +44,7 @@ const LayOutPublic = () => {
             }
         };
         deleteCartPendingFirebase();
-    }, [currentUser]);
+    }, [currentUser]); */
     return (
         <>
             <Navbar />
